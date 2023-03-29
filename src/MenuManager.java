@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 public class MenuManager {
 
 	public static void main(String[] args) {
@@ -16,11 +17,39 @@ public class MenuManager {
 		System.out.print("Select Menu Number: ");
 		num = scan.nextInt();
 		if(num == 1) {
+			addmembers();
+		}
+		if(num == 2) {
+			deletemembers();
+		}
+		if(num == 3) {
+			accountingmenu();
+		}
+		if(num == 4) {
+			editmembers();
+		}
+		if(num == 5) {
+			viewmembers();
+		}
+		if(num == 6 ) {
+			break;//While문을 벗어남
+		}
+		
+		}
+		
+	}
+	public static void addmembers() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("back(Y or N):");//뒤로가기 기능 추가
+		String back=scan.next();
+			if(back.equals("Y")) {
+				return;
+			}
 			System.out.print("ID :");
-			int ID = scan.nextInt();
+			String ID = scan.nextLine();//추후 ArrayList를 이용
+			scan.nextLine();//넘어가기 방지
 			System.out.print("Name: ");
 			String name = scan.nextLine();
-			scan.nextLine();//넘어가기 방지
 			System.out.print("Height: ");
 			int height = scan.nextInt();
 			System.out.print("Weight: ");
@@ -36,40 +65,57 @@ public class MenuManager {
 			String address = scan.nextLine();
 			System.out.print("Phone Number: ");
 			int phoneNumber = scan.nextInt();
-			
-		}
-		if(num == 2) {
-			System.out.println("client ID list");//전체 ID 리스트(추후 수정)
-			System.out.print("client ID: ");
-			int ID = scan.nextInt();
-		}
-		if(num == 3) {
-			System.out.print("Select ID: ");//ID 접속시 밑에 정보 추가
-			int ID = scan.nextInt();
-			System.out.print("Start day:");//추후 수정
-			int start = scan.nextInt();
-			System.out.print("Finish day:");
-			int finish = scan.nextInt();
-			System.out.print("Price : ");
-			int price = scan.nextInt();
-			System.out.print("Start Pt-time  :");
-			int startPT = scan.nextInt();
-			System.out.print("Finish Pt-time  :");
-			int finishPT = scan.nextInt();
-		}
-		if(num == 4) {
-			System.out.print("select ID: ");
-			int ID = scan.nextInt();
-		}
-		if(num == 5) {
-			System.out.print("select ID: ");
-			int ID = scan.nextInt();
-		}
-		if(num == 6 ) {
-			break;
-		}
-		
-		}
 	}
-
+	public static void deletemembers() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("back(Y or N):");
+		String back=scan.next();
+			if(back.equals("Y")) {
+				return;
+			}
+		System.out.println("client ID list");//전체 ID 리스트(추후 수정) -> System.out.prinln(idList), 함수안 리턴값 추후 문제해결
+		System.out.print("client ID: ");
+		String ID = scan.nextLine();
+		}
+	public static void accountingmenu() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("back(Y or N):");
+		String back=scan.next();
+			if(back.equals("Y")) {
+				return;
+			}
+		System.out.print("Select ID: ");//ID 접속시 밑에 정보 추가
+		String ID = scan.nextLine();
+		System.out.print("Start day:");//추후 수정
+		int start = scan.nextInt();
+		System.out.print("Finish day:");
+		int finish = scan.nextInt();
+		System.out.print("Price : ");
+		int price = scan.nextInt();
+		System.out.print("Start Pt-time  :");
+		int startPT = scan.nextInt();
+		System.out.print("Finish Pt-time  :");
+		int finishPT = scan.nextInt();
+	}
+	public static void editmembers() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("back(Y or N):");
+		String back=scan.next();
+			if(back.equals("Y")) {
+				return;
+			}
+		System.out.print("select ID: ");
+		String ID = scan.nextLine();
+	}
+	public static void viewmembers() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("back(Y or N):");
+		String back=scan.next();
+			if(back.equals("Y")) {
+				return;
+			}
+		System.out.print("select ID: ");
+		String ID = scan.nextLine();
+	}
+	
 }
