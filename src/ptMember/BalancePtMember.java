@@ -34,7 +34,7 @@ public class BalancePtMember extends PtMember {
 		while(answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N')
 		{
 			//문장 변경
-			System.out.print("Do you want to show Leanmassup recommand calories? (Y/N)");
+			System.out.print("Do you want to show Balance recommand calories? (Y/N)");
 			answer = scan.next().charAt(0);
 			if(answer == 'y' || answer == 'Y') {
 				double calories = this.getWeight()* 30; //숫자 변경
@@ -100,11 +100,11 @@ public class BalancePtMember extends PtMember {
 		}
 		System.out.println();
 		//type 문 추가
-		System.out.println("type:" + stype + "name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
+		System.out.println("type:" + stype + " name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
 		//오버라이딩으로 전화번호 , 칼로리 변경
 		System.out.println("age:"+age+" birthday:"+birthday+" gender:"+gender
 				+"phoneNumber:"+phoneNumber+"address:"+ address);
-		System.out.println("recmmand calories:" + calories);
+		System.out.println("recommand calories:" + calories);
 		System.out.println();
 	}
 }

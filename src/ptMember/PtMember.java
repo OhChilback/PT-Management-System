@@ -29,9 +29,9 @@ public class PtMember {
 		this.name = name;
 		this.id= id;
 	}	
-	//type 포함 생성자 추가 + 칼로리, bmi 생성자 추가
+	//type 포함 생성자 추가 + 칼로리
 	public PtMember(PtMemberType type, int id, String name, double height,double weight, 
-			int age, int birthday, String gender, String address, int phoneNumber, double calories, double bmi)
+			int age, int birthday, String gender, String address, int phoneNumber, double calories)
 	{
 		this.type = type;
 		this.name = name;
@@ -45,7 +45,7 @@ public class PtMember {
 		this.address = address;
 		this.calories = calories;
 	}
-	// 칼로리, bmi 생성자 추가
+	// 칼로리
 	public PtMember( int id, String name, double height,double weight, 
 			int age, int birthday, String gender, String address, int phoneNumber, double carlories)
 	{

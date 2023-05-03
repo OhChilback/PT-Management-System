@@ -2,10 +2,10 @@ package ptMember;
 
 import java.util.Scanner;
 
-public class LeanmassUp extends PtMember {
+public class LeanmassUpManager extends PtMember {
 	
 	//type만 생성자 추가
-		public LeanmassUp(PtMemberType type) {
+		public LeanmassUpManager(PtMemberType type) {
 			super(type);
 		}
 		
@@ -100,11 +100,11 @@ public class LeanmassUp extends PtMember {
 		}
 		System.out.println();
 		//type 문 추가
-		System.out.println("type:" + stype + "name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
+		System.out.println("type:" + stype + " name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
 		//오버라이딩으로 전화번호 , 칼로리 변경
 		System.out.println("age:"+age+" birthday:"+birthday+" gender:"+gender
 				+"phoneNumber:"+phoneNumber+"address:"+ address);
-		System.out.println("recmmand calories:" + calories);
+		System.out.println("recommand calories:" + calories);
 		System.out.println();
 	}
 }
