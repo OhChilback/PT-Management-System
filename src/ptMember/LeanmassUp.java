@@ -2,13 +2,14 @@ package ptMember;
 
 import java.util.Scanner;
 
-public class BulkUpPtMember extends PtMember {
+public class LeanmassUp extends PtMember {
 	
 	//type만 생성자 추가
-			public BulkUpPtMember(PtMemberType type) {
-				super(type);
-			}
-	
+		public LeanmassUp(PtMemberType type) {
+			super(type);
+		}
+		
+	//오버라이딩 
 	public void getUserScan(Scanner scan) {
 		System.out.print("ID :");
 		int id = scan.nextInt();
@@ -28,14 +29,15 @@ public class BulkUpPtMember extends PtMember {
 		double weight = scan.nextDouble();
 		this.setWeight(weight);
 		
-		//칼로리 받는 while문 추가
 		char answer = 'x';
+		
 		while(answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N')
 		{
-			System.out.print("Do you want to show Bulkup recommand calories? (Y/N)");
+			//문장 변경
+			System.out.print("Do you want to show Leanmassup recommand calories? (Y/N)");
 			answer = scan.next().charAt(0);
 			if(answer == 'y' || answer == 'Y') {
-				double calories = this.getWeight()* 40;
+				double calories = this.getWeight()*25; //숫자 변경
 				this.setCalories(calories);
 				
 				break;
@@ -63,6 +65,9 @@ public class BulkUpPtMember extends PtMember {
 		String gender = scan.nextLine();
 		this.setGender(gender);
 		
+		
+		
+		
 		System.out.print("Phone Number: ");
 		int phoneNumber = scan.nextInt();
 		this.setPhoneNumber(phoneNumber);
@@ -73,5 +78,33 @@ public class BulkUpPtMember extends PtMember {
 		String address = scan.nextLine();
 		this.setAddress(address);
 	}
-
+	
+	//오버라이딩 
+	public void viewPrint(){
+		String stype = "xxx";
+		switch(this.type){
+			case DIET:
+				stype = "Diet";
+				break;
+			case BULKUP:
+				stype = "Bulkup";
+				break;
+			case LEANMASSUP:
+				stype = "Leanmassup";
+				break;
+			case BALANCE:
+				stype = "Balance";
+				break;
+			default:
+			
+		}
+		System.out.println();
+		//type 문 추가
+		System.out.println("type:" + stype + "name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
+		//오버라이딩으로 전화번호 , 칼로리 변경
+		System.out.println("age:"+age+" birthday:"+birthday+" gender:"+gender
+				+"phoneNumber:"+phoneNumber+"address:"+ address);
+		System.out.println("recmmand calories:" + calories);
+		System.out.println();
+	}
 }

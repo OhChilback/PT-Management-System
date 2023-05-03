@@ -1,8 +1,8 @@
 package ptMember;
 import java.util.Scanner;
 public class PtMember {
-	//필드들 전부 encapsulation
-	protected PtMemberType type = PtMemberType.Diet; //enum을 통해 pt받는 사람들 유형 추가
+
+	protected PtMemberType type = PtMemberType.DIET; 
 	protected int id;
 	protected String name;
 	protected double height;
@@ -12,11 +12,16 @@ public class PtMember {
 	protected String gender;
 	protected String address;
 	protected int phoneNumber;
-	
+	//적정칼로리 추가
+	protected double calories;
 
 	public PtMember()
 	{
 		
+	}
+	//type만 생성자 추가
+	public PtMember(PtMemberType type) {
+		this.type = type;
 	}
 	
 	public PtMember(String name,int id)
@@ -24,10 +29,11 @@ public class PtMember {
 		this.name = name;
 		this.id= id;
 	}	
-	
-	public PtMember(int id, String name, double height,double weight, 
-			int age, int birthday, String gender, String address, int phoneNumber)
+	//type 포함 생성자 추가 + 칼로리, bmi 생성자 추가
+	public PtMember(PtMemberType type, int id, String name, double height,double weight, 
+			int age, int birthday, String gender, String address, int phoneNumber, double calories, double bmi)
 	{
+		this.type = type;
 		this.name = name;
 		this.id= id;
 		this.height =height;
@@ -37,10 +43,28 @@ public class PtMember {
 		this.gender = gender;
 		this.phoneNumber = phoneNumber;
 		this.address = address;
+		this.calories = calories;
+	}
+	// 칼로리, bmi 생성자 추가
+	public PtMember( int id, String name, double height,double weight, 
+			int age, int birthday, String gender, String address, int phoneNumber, double carlories)
+	{
+		
+		this.name = name;
+		this.id= id;
+		this.height =height;
+		this.weight = weight;
+		this.age = age;
+		this.birthday =birthday;
+		this.gender = gender;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
+		this.calories = carlories;
+
 		
 	}
 	
-	//getter, setter 추가
+	
 	public PtMemberType getType() {
 		return type;
 	}
@@ -121,43 +145,81 @@ public class PtMember {
 		this.address = address;
 	}
 	
+	public double getCalories() {
+		return calories;
+	}
+
+	public void setCalories(double calories) {
+		this.calories = calories;
+	}
+	
+	//switch문 추가해서 enum별로 string 변수에 저장
 	public void viewPrint(){
+		String stype = "xxx";
+		switch(this.type){
+			case DIET:
+				stype = "Diet";
+				break;
+			case BULKUP:
+				stype = "Bulkup";
+				break;
+			case LEANMASSUP:
+				stype = "Leanmassup";
+				break;
+			case BALANCE:
+				stype = "Balance";
+				break;
+			default:
+			
+		}
 		System.out.println();
-		System.out.println("name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
+		//type 문 추가
+		System.out.println("type:" + stype + "name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
 		System.out.println("age:"+age+" birthday:"+birthday+" gender:"+gender+" phoneNumber:"+phoneNumber+" address:"+address);
+		System.out.println("recommand Calories:" + calories );
 		System.out.println();
 	}
-	//scan해서 넣는 메소드 추가
+	
 	public void getUserScan(Scanner scan) {
 		System.out.print("ID :");
+		
 		int id = scan.nextInt();
 		this.setId(id);
 		scan.nextLine();//넘어가기 방지
+		
 		System.out.print("Name: ");
 		String name = scan.nextLine();
 		this.setName(name);
+		
 		System.out.print("Height: ");
-		Double height = scan.nextDouble();
+		double height = scan.nextDouble();
 		this.setHeight(height);
+		
 		System.out.print("Weight: ");
-		Double weight = scan.nextDouble();
+		double weight = scan.nextDouble();
 		this.setWeight(weight);
+		
 		System.out.print("Age: ");
 		int age = scan.nextInt();
 		this.setAge(age);
+		
 		System.out.print("Birthday: ");
 		int birthday= scan.nextInt();
 		this.setBirthday(birthday);
 		scan.nextLine();//넘어가기 방지
+		
 		System.out.print("Gender: ");
 		String gender = scan.nextLine();
 		this.setGender(gender);
+		
 		System.out.print("address: ");
 		String address = scan.nextLine();
 		this.setAddress(address);
+		
 		System.out.print("Phone Number: ");
 		int phoneNumber = scan.nextInt();
 		this.setPhoneNumber(phoneNumber);
+		
 	}
 	
 	

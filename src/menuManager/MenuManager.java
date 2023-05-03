@@ -18,7 +18,7 @@ public class MenuManager {
 		System.out.println();
 		System.out.print("Select Menu Number: ");
 		num = scan.nextInt();
-		//뒤로가기 함수 삭제
+		
 		if(num == 1) { 
 				memberManager.addMembers();
 		}
@@ -31,7 +31,7 @@ public class MenuManager {
 		}
 		if(num == 4) {
 				memberManager.viewMembers();
-				return;
+				
 		}
 		if(num == 5 ) {
 			break;//While문을 벗어남

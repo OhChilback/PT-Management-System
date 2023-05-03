@@ -1,8 +1,11 @@
 package menuManager;
 import java.util.Scanner;
 
+import ptMember.BalancePtMember;
 import ptMember.BulkUpPtMember;
+import ptMember.LeanmassUp;
 import ptMember.PtMember;
+import ptMember.PtMemberType;
 
 import java.util.ArrayList;
 public class PtMemberManager 
@@ -16,26 +19,43 @@ public class PtMemberManager
 	
 
 public void addMembers() {
-			//type를 만들어 어떤 유형의 멤버인지 정하는 구문 추가 
+			 
 			int type = 0;
 			PtMember ptMember;
-			while(type != 1 && type != 2) {
-		    System.out.print("1 is Diet type");
-		    System.out.print("2 is Bulk up type");
-		    System.out.print("Select PtMember Type 1 or 2:");
+			while(type != 1 && type != 2 && type != 3 && type != 4) {
+		    System.out.println("1 is Diet type");
+		    System.out.println("2 is Bulk up type");
+		    System.out.println("3 is Leanmassup type"); //leanmassup 추가
+		    System.out.println("4 is Balance type"); //balance 추가
+		    System.out.print("Select PtMember Type 1 ~ 4:");
 		    type = scan.nextInt();
+		    //type 추가로 인한 생성자 변경
 		    if(type == 1) {
-		    	ptMember = new PtMember();
+		    	ptMember = new PtMember(PtMemberType.DIET);
 		    	ptMember.getUserScan(scan);
 		    	ptMembers.add(ptMember);
 		    	break;
 		    }
 		    else if(type == 2) {
-		    	ptMember = new BulkUpPtMember();
+		    	ptMember = new BulkUpPtMember(PtMemberType.BULKUP);
 		    	ptMember.getUserScan(scan);
 		    	ptMembers.add(ptMember);
 		    	break;
 		    }
+		    else if(type == 3) {
+		    	ptMember = new LeanmassUp(PtMemberType.LEANMASSUP);
+		    	ptMember.getUserScan(scan);
+		    	ptMembers.add(ptMember);
+		    	break;
+		    }
+		    
+		    else if(type == 4) {
+		    	ptMember = new BalancePtMember(PtMemberType.BALANCE);
+		    	ptMember.getUserScan(scan);
+		    	ptMembers.add(ptMember);
+		    	break;
+		    }
+		    
 		    else {
 		    	System.out.print("Wrong number! Try again accuarte number.");
 		    }
@@ -46,20 +66,18 @@ public void addMembers() {
 
 	public void deleteMembers() {
 		
-	
-		
 		System.out.print("client ID: ");
 		int id = scan.nextInt();
 		int index = -1;
 		for(int i = 0 ; i<ptMembers.size(); i++) {
-			if(ptMembers.get(i).getId() == id) {//.getId()로 변경
+			if(ptMembers.get(i).getId() == id) {
 				index = i;
 				break;
 			}
 		}
 		if(index >= 0){
 			ptMembers.remove(index);
-			System.out.println("the student " + id + " is deleted");
+			System.out.println("the ptMember " + id + " is deleted");
 		}
 		else {
 			System.out.println("the ptMember has not been registered");
@@ -68,11 +86,13 @@ public void addMembers() {
 	}
 	
 	public void editMembers() {
+		
 		System.out.print("edited ID: ");
-		int ptMemberId = scan.nextInt();//id->ptMemberId 변경
+		int ptMemberId = scan.nextInt();
+		
 		for (int i = 0; i < ptMembers.size(); i++){
 			PtMember ptMember = ptMembers.get(i);
-			if(ptMembers.get(i).getId() == ptMemberId) { //.getId()로 변경
+			if(ptMembers.get(i).getId() == ptMemberId) { 
 				int num = -1;
 				while(num != 10) {
 					System.out.println("1. Edit ID");
@@ -87,7 +107,7 @@ public void addMembers() {
 					System.out.println("10. Exit");
 					System.out.print("Select Menu Number: ");
 					num = scan.nextInt();
-					if(num == 1) { //전부 자료형으로 바꾼 후 setter추가
+					if(num == 1) { 
 						System.out.print("ID:");
 						int id = scan.nextInt(); 
 						ptMember.setId(id); 
@@ -142,13 +162,14 @@ public void addMembers() {
 		}
 
 	}
+	
 	public void viewMembers() {
-		System.out.println("현재 등록된 회원입니다." + ptMembers.size()); //문구 변경
+		System.out.println("현재 등록된 회원입니다." + ptMembers.size()); 
 		for(int i = 0; i<ptMembers.size(); i++) {
 			ptMembers.get(i).viewPrint();
 		}
 	}
 	
-	//뒤로가기 함수 삭제
+	
 }
 
