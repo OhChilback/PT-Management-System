@@ -79,32 +79,4 @@ public class LeanmassUpManager extends PtMember {
 		this.setAddress(address);
 	}
 	
-	//오버라이딩 
-	public void viewPrint(){
-		String stype = "xxx";
-		switch(this.type){
-			case DIET:
-				stype = "Diet";
-				break;
-			case BULKUP:
-				stype = "Bulkup";
-				break;
-			case LEANMASSUP:
-				stype = "Leanmassup";
-				break;
-			case BALANCE:
-				stype = "Balance";
-				break;
-			default:
-			
-		}
-		System.out.println();
-		//type 문 추가
-		System.out.println("type:" + stype + " name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
-		//오버라이딩으로 전화번호 , 칼로리 변경
-		System.out.println("age:"+age+" birthday:"+birthday+" gender:"+gender
-				+"phoneNumber:"+phoneNumber+"address:"+ address);
-		System.out.println("recommand calories:" + calories);
-		System.out.println();
-	}
 }
