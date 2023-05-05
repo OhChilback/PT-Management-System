@@ -2,10 +2,10 @@ package ptMember;
 
 import java.util.Scanner;
 
-public class LeanmassUpManager extends PtMember {
+public class LeanmassUpPtMember extends PtMember {
 	
 	//type만 생성자 추가
-		public LeanmassUpManager(PtMemberType type) {
+		public LeanmassUpPtMember(PtMemberType type) {
 			super(type);
 		}
 		

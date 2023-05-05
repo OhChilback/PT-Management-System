@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 import ptMember.BalancePtMember;
 import ptMember.BulkUpPtMember;
-import ptMember.LeanmassUpManager;
+import ptMember.LeanmassUpPtMember;
 import ptMember.PtMember;
 import ptMember.PtMemberType;
 
@@ -43,7 +43,7 @@ public void addMembers() {
 		    	break;
 		    }
 		    else if(type == 3) {
-		    	ptMember = new LeanmassUpManager(PtMemberType.LEANMASSUP);
+		    	ptMember = new LeanmassUpPtMember(PtMemberType.LEANMASSUP);
 		    	ptMember.getUserScan(scan);
 		    	ptMembers.add(ptMember);
 		    	break;
