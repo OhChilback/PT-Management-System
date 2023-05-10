@@ -34,7 +34,7 @@ public class MenuManager {
 				
 		}
 		if(num == 5 ) {
-			break;//While문을 벗어남
+			break;
 		}
 		
 		}

@@ -1,19 +1,19 @@
 package ptMember;
 
 import java.util.Scanner;
-//인터페이스 상속
-public class BulkUpPtMember extends PtMember implements UserScan{
+
+//Diet Class (default class) 생성 및, PtMember 상속, 인터페이스 상속
+public class DietPtMember extends PtMember implements UserScan{
 	
-	
-			public BulkUpPtMember(PtMemberType type) {
-				super(type);
-			}
+	public DietPtMember(PtMemberType type) {
+		super(type);
+	}
 	
 	public void getUserScan(Scanner scan) {
 		System.out.print("ID :");
+		
 		int id = scan.nextInt();
 		this.setId(id);
-		
 		scan.nextLine();
 		
 		System.out.print("Name: ");
@@ -28,27 +28,6 @@ public class BulkUpPtMember extends PtMember implements UserScan{
 		double weight = scan.nextDouble();
 		this.setWeight(weight);
 		
-		
-		char answer = 'x';
-		while(answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N')
-		{
-			System.out.print("Do you want to show Bulkup recommand calories? (Y/N)");
-			answer = scan.next().charAt(0);
-			if(answer == 'y' || answer == 'Y') {
-				double calories = this.getWeight()* 40;
-				this.setCalories(calories);
-				
-				break;
-			}
-			else if(answer == 'n' || answer == 'N') {
-				this.setCalories(0);
-				break;
-			}
-			else {
-				
-			}
-		}
-		
 		System.out.print("Age: ");
 		int age = scan.nextInt();
 		this.setAge(age);
@@ -56,24 +35,22 @@ public class BulkUpPtMember extends PtMember implements UserScan{
 		System.out.print("Birthday: ");
 		int birthday= scan.nextInt();
 		this.setBirthday(birthday);
-		
-		scan.nextLine();
+		scan.nextLine();//넘어가기 방지
 		
 		System.out.print("Gender: ");
 		String gender = scan.nextLine();
 		this.setGender(gender);
 		
+		System.out.print("address: ");
+		String address = scan.nextLine();
+		this.setAddress(address);
+		
 		System.out.print("Phone Number: ");
 		int phoneNumber = scan.nextInt();
 		this.setPhoneNumber(phoneNumber);
 		
-		scan.nextLine();
-		
-		System.out.print("address: ");
-		String address = scan.nextLine();
-		this.setAddress(address);
 	}
-	//칼로리출력 specific method
+	//diet 는 default 형태(칼로리출력 x)
 	public void viewPrint(){
 		String stype = "xxx";
 		switch(this.type){
@@ -91,12 +68,12 @@ public class BulkUpPtMember extends PtMember implements UserScan{
 				break;
 			default:
 			
-		}
+		} 
 		System.out.println();
 		System.out.println("type:" + stype + " name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
 		System.out.println("age:"+age+" birthday:"+birthday+" gender:"+gender+" phoneNumber:"+phoneNumber+" address:"+address);
-		System.out.println("recommand Calories:" + calories );
 		System.out.println();
 	}
 
+	
 }

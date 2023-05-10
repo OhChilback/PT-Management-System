@@ -1,6 +1,7 @@
 package ptMember;
 import java.util.Scanner;
-public class PtMember {
+//PtMember 추상화
+public abstract class PtMember {
 
 	protected PtMemberType type = PtMemberType.DIET; 
 	protected int id;
@@ -153,74 +154,10 @@ public class PtMember {
 		this.calories = calories;
 	}
 	
-	//switch문 추가해서 enum별로 string 변수에 저장
-	public void viewPrint(){
-		String stype = "xxx";
-		switch(this.type){
-			case DIET:
-				stype = "Diet";
-				break;
-			case BULKUP:
-				stype = "Bulkup";
-				break;
-			case LEANMASSUP:
-				stype = "Leanmassup";
-				break;
-			case BALANCE:
-				stype = "Balance";
-				break;
-			default:
-			
-		}
-		System.out.println();
-		//type 문 추가
-		System.out.println("type:" + stype + "name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
-		System.out.println("age:"+age+" birthday:"+birthday+" gender:"+gender+" phoneNumber:"+phoneNumber+" address:"+address);
-		System.out.println("recommand Calories:" + calories );
-		System.out.println();
-	}
+	//추상method
+	 public abstract void viewPrint();
 	
-	public void getUserScan(Scanner scan) {
-		System.out.print("ID :");
-		
-		int id = scan.nextInt();
-		this.setId(id);
-		scan.nextLine();//넘어가기 방지
-		
-		System.out.print("Name: ");
-		String name = scan.nextLine();
-		this.setName(name);
-		
-		System.out.print("Height: ");
-		double height = scan.nextDouble();
-		this.setHeight(height);
-		
-		System.out.print("Weight: ");
-		double weight = scan.nextDouble();
-		this.setWeight(weight);
-		
-		System.out.print("Age: ");
-		int age = scan.nextInt();
-		this.setAge(age);
-		
-		System.out.print("Birthday: ");
-		int birthday= scan.nextInt();
-		this.setBirthday(birthday);
-		scan.nextLine();//넘어가기 방지
-		
-		System.out.print("Gender: ");
-		String gender = scan.nextLine();
-		this.setGender(gender);
-		
-		System.out.print("address: ");
-		String address = scan.nextLine();
-		this.setAddress(address);
-		
-		System.out.print("Phone Number: ");
-		int phoneNumber = scan.nextInt();
-		this.setPhoneNumber(phoneNumber);
-		
-	}
+	
 	
 	
 		

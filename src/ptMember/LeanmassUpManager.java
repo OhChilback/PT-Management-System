@@ -1,21 +1,21 @@
 package ptMember;
 
 import java.util.Scanner;
-
-public class LeanmassUpPtMember extends PtMember {
+//인터페이스 상속
+public class LeanmassUpManager extends PtMember implements UserScan{
 	
-	//type만 생성자 추가
-		public LeanmassUpPtMember(PtMemberType type) {
+	
+		public LeanmassUpManager(PtMemberType type) {
 			super(type);
 		}
 		
-	//오버라이딩 
+	
 	public void getUserScan(Scanner scan) {
 		System.out.print("ID :");
 		int id = scan.nextInt();
 		this.setId(id);
 		
-		scan.nextLine();//넘어가기 방지
+		scan.nextLine();
 		
 		System.out.print("Name: ");
 		String name = scan.nextLine();
@@ -78,5 +78,31 @@ public class LeanmassUpPtMember extends PtMember {
 		String address = scan.nextLine();
 		this.setAddress(address);
 	}
+	//칼로리출력 specific method
+	public void viewPrint(){
+		String stype = "xxx";
+		switch(this.type){
+			case DIET:
+				stype = "Diet";
+				break;
+			case BULKUP:
+				stype = "Bulkup";
+				break;
+			case LEANMASSUP:
+				stype = "Leanmassup";
+				break;
+			case BALANCE:
+				stype = "Balance";
+				break;
+			default:
+			
+		}
+		System.out.println();
+		System.out.println("type:" + stype + " name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
+		System.out.println("age:"+age+" birthday:"+birthday+" gender:"+gender+" phoneNumber:"+phoneNumber+" address:"+address);
+		System.out.println("recommand Calories:" + calories );
+		System.out.println();
+	}
+	
 	
 }
