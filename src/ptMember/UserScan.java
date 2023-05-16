@@ -2,11 +2,9 @@ package ptMember;
 
 import java.util.Scanner;
 
+import exception.AddressFormatException;
+
 public interface UserScan {
-	
-	// 인터페이스 추가 (menu manager 에서 Scanner 쓰이는 형태)
-	
-	//menu manager 에서 쓰이는 method 형태 선언
 
 	public void getUserScan(Scanner scan);
 	
@@ -35,9 +33,27 @@ public interface UserScan {
 
 	public void setPhoneNumber(int phoneNumber);
 
-
-	public void setAddress(String address);
+	//AddressFormatException throws 구현
+	public void setAddress(String address) throws AddressFormatException;
 	
 	public void viewPrint();
+	
+	public void setPtMemberID(Scanner scan);
+	
+	public void setPtMemberName(Scanner scan);
+	
+	public void setPtMemberHeight(Scanner scan);
+	
+	public void setPtMemberWeight(Scanner scan);
+
+	public void setPtMemberAge(Scanner scan);
+	
+	public void setPtMemberBirthday(Scanner scan);
+	
+	public void setPtMemberGender(Scanner scan);
+	
+	public void setPtMemberAddress(Scanner scan);
+	
+	public void setPtMemberPhoneNumber(Scanner scan);
 }
 

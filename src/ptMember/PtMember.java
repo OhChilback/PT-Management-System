@@ -1,7 +1,9 @@
 package ptMember;
 import java.util.Scanner;
-//PtMember 추상화
-public abstract class PtMember {
+
+import exception.AddressFormatException;
+
+public abstract class PtMember implements UserScan {
 
 	protected PtMemberType type = PtMemberType.DIET; 
 	protected int id;
@@ -13,14 +15,14 @@ public abstract class PtMember {
 	protected String gender;
 	protected String address;
 	protected int phoneNumber;
-	//적정칼로리 추가
+
 	protected double calories;
 
 	public PtMember()
 	{
 		
 	}
-	//type만 생성자 추가
+	
 	public PtMember(PtMemberType type) {
 		this.type = type;
 	}
@@ -30,7 +32,7 @@ public abstract class PtMember {
 		this.name = name;
 		this.id= id;
 	}	
-	//type 포함 생성자 추가 + 칼로리
+	
 	public PtMember(PtMemberType type, int id, String name, double height,double weight, 
 			int age, int birthday, String gender, String address, int phoneNumber, double calories)
 	{
@@ -46,7 +48,7 @@ public abstract class PtMember {
 		this.address = address;
 		this.calories = calories;
 	}
-	// 칼로리
+	
 	public PtMember( int id, String name, double height,double weight, 
 			int age, int birthday, String gender, String address, int phoneNumber, double carlories)
 	{
@@ -141,8 +143,13 @@ public abstract class PtMember {
 	public String getAddress() {
 		return address;
 	}
-
-	public void setAddress(String address) {
+	
+	
+	//AddressFormatException로 if문을 통해 @가 없고 띄어쓰기가 있을 경우 throw함 
+	public void setAddress(String address) throws AddressFormatException {
+		if(!address.contains("@") && !address.equals("")) {
+			throw new AddressFormatException();
+		}
 		this.address = address;
 	}
 	
@@ -154,12 +161,92 @@ public abstract class PtMember {
 		this.calories = calories;
 	}
 	
-	//추상method
-	 public abstract void viewPrint();
+	public abstract void viewPrint();
 	
-	
-	
-	
+		public void setPtMemberID(Scanner scan) {
+			System.out.print("ID:");
+			int id = scan.nextInt(); 
+			this.setId(id); 
+		}
 		
-	
+		public void setPtMemberName(Scanner scan) {
+			System.out.print("Name: ");
+			scan.nextLine();
+			String name = scan.next();
+			this.setName(name);
+		}
+		
+		public void setPtMemberHeight( Scanner scan) {
+			System.out.print("Height: ");
+			double height = scan.nextDouble();
+			this.setHeight(height);
+		}
+		
+		public void setPtMemberWeight(Scanner scan) {
+			System.out.print("Weight: ");
+			double weight = scan.nextDouble();
+			this.setWeight(weight);
+		}
+		
+		public void setPtMemberAge(Scanner scan) {
+			System.out.print("Age: ");
+			int age = scan.nextInt();
+			this.setAge(age);
+		}
+		
+		public void setPtMemberBirthday(Scanner scan) {
+			System.out.print("Birthday: ");
+			scan.nextLine();
+			int birthday = scan.nextInt();
+			this.setBirthday(birthday);
+		}
+		
+		public void setPtMemberGender(Scanner scan) {
+			System.out.print("Gender: ");
+			scan.nextLine();
+			String gender = scan.next();
+			this.setGender(gender);
+		}
+		
+		//while문과 try catch문을 넣어 오류 발생시 오류 문장 출력
+		public void setPtMemberAddress(Scanner scan) {
+			String  address = "";
+			while(!address.contains("@") && !address.equals("")) {
+				System.out.print("Address: ");
+				address = scan.next();
+				try {
+					this.setAddress(address);
+				} catch (AddressFormatException e) {
+					System.out.println("Incorrect Address Format. put your address that contains @");
+				}
+			}
+		}
+		
+		public void setPtMemberPhoneNumber(Scanner scan) {
+			System.out.print("PhoneNumber: ");
+			int phoneNumber = scan.nextInt();
+			this.setPhoneNumber(phoneNumber);
+		}
+		
+		
+		public String getTypeString() {
+			
+			String stype = "xxx";
+			switch(this.type){
+				case DIET:
+					stype = "Diet";
+					break;
+				case BULKUP:
+					stype = "Bulkup";
+					break;
+				case LEANMASSUP:
+					stype = "Leanmassup";
+					break;
+				case BALANCE:
+					stype = "Balance";
+					break;
+				default:
+			}
+			return stype;
+		}
 }
