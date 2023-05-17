@@ -18,25 +18,25 @@ public class MenuManager {
 		int num = -1; //num 초기화
 		while(num!=5) {//조건 변경
 			try {
-			showMenu();
-			num = scan.nextInt();
-			
-			switch(num) {
-			case 1:
-				memberManager.addMembers();
-				break;
-			case 2:
-				memberManager.deleteMembers();
-				break;
-			case 3:
-				memberManager.editMembers();
-				break;
-			case 4:
-				memberManager.viewMembers();
-				break;
-			default:
-				continue;
-				}
+				showMenu();
+				num = scan.nextInt();
+				
+				switch(num) {
+				case 1:
+					memberManager.addMembers();
+					break;
+				case 2:
+					memberManager.deleteMembers();
+					break;
+				case 3:
+					memberManager.editMembers();
+					break;
+				case 4:
+					memberManager.viewMembers();
+					break;
+				default:
+					continue;
+					}
 			}
 			catch(InputMismatchException e) {
 				System.out.println("Please put an integer between 1 and 5!");

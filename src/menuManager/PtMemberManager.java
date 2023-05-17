@@ -25,7 +25,7 @@ public void addMembers() {
 			 
 			int type = 0;
 			UserScan userScan;
-			while(type != 1 && type != 2 && type != 3 && type != 4) {
+			while(type < 1 || type > 4) {
 				
 				//try catch문 추가 
 				try {
@@ -62,7 +62,7 @@ public void addMembers() {
 			    }
 			    
 			    else {
-			    	System.out.print("Wrong number! Try again accuarte number.");
+			    	System.out.println("Wrong number! Try again accuarte number.");
 			    }
 			}
 			catch(InputMismatchException e) {

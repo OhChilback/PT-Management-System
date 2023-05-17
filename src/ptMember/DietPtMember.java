@@ -1,8 +1,8 @@
 package ptMember;
 
 import java.util.Scanner;
-
-public class DietPtMember extends PtMember {
+//상속 변경
+public class DietPtMember extends UPPtMember {
 	
 	public DietPtMember(PtMemberType type) {
 		super(type);

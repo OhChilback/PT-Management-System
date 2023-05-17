@@ -211,7 +211,7 @@ public abstract class PtMember implements UserScan {
 		//while문과 try catch문을 넣어 오류 발생시 오류 문장 출력
 		public void setPtMemberAddress(Scanner scan) {
 			String  address = "";
-			while(!address.contains("@") && !address.equals("")) {
+			while(!address.contains("@")) {
 				System.out.print("Address: ");
 				address = scan.next();
 				try {

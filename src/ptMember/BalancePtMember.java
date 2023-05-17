@@ -16,8 +16,6 @@ public class BalancePtMember extends UPPtMember {
 		setPtMemberHeight(scan);
 		setPtMemberWeight(scan);
 		setPtMemberCalorieswithYN(scan, 30);
-		
-		
 		setPtMemberAge(scan);
 		setPtMemberBirthday(scan);
 		setPtMemberGender(scan);

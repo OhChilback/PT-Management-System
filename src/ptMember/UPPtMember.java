@@ -2,8 +2,7 @@ package ptMember;
 
 import java.util.Scanner;
 
-//새로운 추상 클래스 생성
-//PtMember가 부모 클래스
+
 
 public abstract  class UPPtMember extends PtMember {
 
@@ -23,8 +22,6 @@ public abstract  class UPPtMember extends PtMember {
 		System.out.println();
 	}
 	
-	//적정칼로리 출력여부 묻는 메소드 추가
-	//타입별 활동지수가 다르게 파라미터 하나 추가
 		public void setPtMemberCalorieswithYN(Scanner scan, int index) {
 			char answer = 'x';
 			
