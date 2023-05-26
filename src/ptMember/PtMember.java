@@ -1,10 +1,13 @@
 package ptMember;
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.AddressFormatException;
+//직렬화 상속
+public abstract class PtMember implements UserScan, Serializable {
 
-public abstract class PtMember implements UserScan {
-
+	private static final long serialVersionUID = -1850378311932806163L;
+	
 	protected PtMemberType type = PtMemberType.DIET; 
 	protected int id;
 	protected String name;

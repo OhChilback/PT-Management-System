@@ -5,16 +5,16 @@ import ptMember.BalancePtMember;
 import ptMember.BulkUpPtMember;
 import ptMember.DietPtMember;
 import ptMember.LeanmassUpManager;
-import ptMember.PtMember;
 import ptMember.PtMemberType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-
-public class PtMemberManager 
-{
+//직렬화 상속
+public class PtMemberManager implements Serializable  {
+	private static final long serialVersionUID = 4456689050315677669L;
 	ArrayList<UserScan> ptMembers = new ArrayList<UserScan>();
-	Scanner scan;
+	transient Scanner scan;
 	PtMemberManager(Scanner scan){
 		this.scan = scan;
 	}
@@ -66,7 +66,7 @@ public void addMembers() {
 			    }
 			}
 			catch(InputMismatchException e) {
-				System.out.println("Please put an integer between 1 ~ 4!");
+				System.out.println("Please put an integer");
 				if(scan.hasNext()){
 					scan.next();
 				}
