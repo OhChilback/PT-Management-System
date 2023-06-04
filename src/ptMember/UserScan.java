@@ -33,7 +33,6 @@ public interface UserScan {
 
 	public void setPhoneNumber(int phoneNumber);
 
-	//AddressFormatException throws 구현
 	public void setAddress(String address) throws AddressFormatException;
 	
 	public void viewPrint();

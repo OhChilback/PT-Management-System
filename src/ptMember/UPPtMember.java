@@ -14,7 +14,7 @@ public abstract  class UPPtMember extends PtMember {
 
 	@Override
 	public void viewPrint(){
-		String stype = getTypeString(); //새로운 메소드 추가, 코드 옮김
+		String stype = getTypeString(); 
 		System.out.println();
 		System.out.println("type:" + stype + " name:"+name+" id:"+id+" height:"+height+" weight:"+weight);
 		System.out.println("age:"+age+" birthday:"+birthday+" gender:"+gender+" phoneNumber:"+phoneNumber+" address:"+address);

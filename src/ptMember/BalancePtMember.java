@@ -2,7 +2,6 @@ package ptMember;
 
 import java.util.Scanner;
 
-//상속 변경
 public class BalancePtMember extends UPPtMember {
 	
 	public BalancePtMember(PtMemberType type) {

@@ -147,8 +147,6 @@ public abstract class PtMember implements UserScan, Serializable {
 		return address;
 	}
 	
-	
-	//AddressFormatException로 if문을 통해 @가 없고 띄어쓰기가 있을 경우 throw함 
 	public void setAddress(String address) throws AddressFormatException {
 		if(!address.contains("@") && !address.equals("")) {
 			throw new AddressFormatException();
