@@ -3,9 +3,9 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.AddressFormatException;
-//직렬화 상속
-public abstract class PtMember implements UserScan, Serializable {
 
+public abstract class PtMember implements UserScan, Serializable {
+	
 	private static final long serialVersionUID = -1850378311932806163L;
 	
 	protected PtMemberType type = PtMemberType.DIET; 
@@ -209,7 +209,7 @@ public abstract class PtMember implements UserScan, Serializable {
 			this.setGender(gender);
 		}
 		
-		//while문과 try catch문을 넣어 오류 발생시 오류 문장 출력
+	
 		public void setPtMemberAddress(Scanner scan) {
 			String  address = "";
 			while(!address.contains("@")) {

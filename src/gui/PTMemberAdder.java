@@ -7,10 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-//총 10개의 행을 추가하였고, 기본PT_info는 총 9개이다. JFrame 과 격자를 이용하여 위치를 선정하였다. 
-public class PTMemberAdder extends JFrame{
-
-	public PTMemberAdder() {
+//panel로 바꾸고 windowframe과 연결
+public class PTMemberAdder extends JPanel{
+    
+	WindowFrame frame;
+	
+	public PTMemberAdder(WindowFrame frame) {
+		this.frame= frame;
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -76,8 +80,8 @@ public class PTMemberAdder extends JFrame{
 		
 		SpringUtilities.makeCompactGrid(panel,10,2,6,6,6,6);
 		
-		this.setSize(300,300);
-		this.setContentPane(panel);
+		
+		this.add(panel);
 		this.setVisible(true);
 	}
 }

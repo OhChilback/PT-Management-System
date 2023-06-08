@@ -6,9 +6,7 @@ import exception.AddressFormatException;
 
 public interface UserScan {
 
-	public void getUserScan(Scanner scan);
 	
-	public int getId();
 	
 
 	public void setId(int id);
@@ -54,5 +52,31 @@ public interface UserScan {
 	public void setPtMemberAddress(Scanner scan);
 	
 	public void setPtMemberPhoneNumber(Scanner scan);
+	
+	//getter 메소드 추가 
+	
+	public void getUserScan(Scanner scan);
+	
+	public int getId();
+
+	public String getName();
+	
+	public String getAddress();
+
+	public int getPhoneNumber();
+
+	public double getHeight();
+	
+	public double getWeight();
+
+	public int getAge();
+	
+	public int getBirthday();
+	
+	public String getGender();
+	
+	public double getCalories();
+
+	
 }
 
