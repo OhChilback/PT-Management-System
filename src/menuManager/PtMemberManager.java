@@ -43,6 +43,7 @@ public class PtMemberManager implements Serializable {
                 } else {
                     System.out.println("Wrong number! Try again with an accurate number.");
                 }
+                
             } catch (InputMismatchException e) {
                 System.out.println("Please input an integer");
                 if (scan.hasNext()) {

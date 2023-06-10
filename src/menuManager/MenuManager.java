@@ -16,7 +16,8 @@ public class MenuManager {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
-		PtMemberManager memberManager = getObject("membermanager.ser"); 
+		PtMemberManager memberManager;
+		memberManager = getObject("membermanager.ser", scan); 
 		
 		
 		if (memberManager == null) {
@@ -38,7 +39,6 @@ public class MenuManager {
 				showMenu();
 				num = scan.nextInt();
 				
-				
 				switch(num) {
 				case 1:
 					memberManager.addMembers();
@@ -55,6 +55,8 @@ public class MenuManager {
 				case 4:
 					memberManager.viewMembers();
 					Logger.log("edit a list of member");
+					break;
+				case 5:
 					break;
 				default:
 					continue;
@@ -82,7 +84,7 @@ public class MenuManager {
 	}
 	
 
-	public static PtMemberManager getObject(String filename) {
+	public static PtMemberManager getObject(String filename, Scanner scan) {
 		PtMemberManager memberManager = null;
 		try {
 			 
@@ -93,6 +95,7 @@ public class MenuManager {
 			
 			in.close();
 			file.close();
+			memberManager.scan = scan;
 		} catch (FileNotFoundException e) {
 			return memberManager;
 		} catch(IOException e) {
